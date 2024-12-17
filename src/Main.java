@@ -1,4 +1,3 @@
-import Easy.*;
 import Medium.*;
 
 public class Main {
