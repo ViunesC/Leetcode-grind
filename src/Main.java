@@ -1,7 +1,9 @@
 import Medium.*;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        q34.testSample();
+        q436.testSample();
     }
 }
