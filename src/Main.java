@@ -1,7 +1,8 @@
 import Medium.*;
+import Easy.*;
 
 public class Main {
     public static void main(String[] args) {
-        q436.testSample();
+        q209.testSample();
     }
 }
