@@ -1,22 +1,21 @@
 package Easy;
 
-
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode() {}
-     ListNode(int val) { this.val = val; }
-     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     public String toString() { ListNode p = this; StringBuilder res = new StringBuilder(); while (p != null) {
-         res.append(p.val);
-         if (p.next != null) {
-             res.append("->");
-         }
-         p = p.next;
-     } return res.toString();}
-}
-
 public class q203 {
+    private class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        public String toString() { ListNode p = this; StringBuilder res = new StringBuilder(); while (p != null) {
+            res.append(p.val);
+            if (p.next != null) {
+                res.append("->");
+            }
+            p = p.next;
+        } return res.toString();}
+    }
+
     public static ListNode removeElements(ListNode head, int val) {
         if (head == null)
             return head;
@@ -42,7 +41,7 @@ public class q203 {
         return h;
     }
 
-    public static void testSample() {
+    public void testSample() {
         ListNode a = new ListNode(1);
         ListNode b = new ListNode(2);
         ListNode c = new ListNode(6);
