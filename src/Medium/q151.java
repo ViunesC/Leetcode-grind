@@ -34,14 +34,13 @@ public class q151 {
     }
 
     public static String reverseWords2(String s) {
-        s = s.trim();
+        s = removeExtraSpaces(s);
 
         StringBuffer resultBuffer = new StringBuffer(s);
         StringBuffer sub;
         resultBuffer.reverse();
 
-        int slow=0, fast=0, temp;
-        String str;
+        int slow=0, fast=0;
         while (slow < resultBuffer.length()) {
             while (fast < resultBuffer.length() && resultBuffer.charAt(fast) != ' ') {
                 fast++;
@@ -50,15 +49,30 @@ public class q151 {
             sub = new StringBuffer(resultBuffer.substring(slow, fast)).reverse();
             resultBuffer.replace(slow, fast, sub.toString());
 
-            slow = fast;
-            while (resultBuffer.charAt(fast) == ' ')
-                fast++;
-            resultBuffer.replace(slow, fast-1, "");
-
+            fast++;
             slow = fast;
         }
 
         return resultBuffer.toString();
+    }
+
+    private static String removeExtraSpaces(String str) {
+        char[] oldStr = str.toCharArray();
+
+        int slow = 0;
+        for (int fast=0;fast<str.length();++fast) {
+            if (oldStr[fast] != ' ') {
+                if (slow != 0)
+                    oldStr[slow++] = ' ';
+                while (fast < str.length() && oldStr[fast] != ' ')
+                    oldStr[slow++] = oldStr[fast++];
+            }
+        }
+
+        char[] newStr = new char[slow];
+        System.arraycopy(oldStr, 0, newStr, 0, slow);
+
+        return new String(newStr);
     }
 
     public static void testSample() {
