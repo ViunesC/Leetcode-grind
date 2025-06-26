@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * Leetcode 199: Binary Tree Right View Traversal
+ * @author Viunec
+ */
 public class q199 {
     private static class TreeNode {
         int val;
