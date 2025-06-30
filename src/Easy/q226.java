@@ -24,6 +24,7 @@ public class q226 {
 
     public static TreeNode invertTree(TreeNode root) {
         if (root == null) return root;
+        // swap left and right children of every node
 
         TreeNode temp = root.left;
         root.left = root.right;
