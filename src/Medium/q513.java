@@ -1,4 +1,4 @@
-package Easy;
+package Medium;
 
 import java.util.LinkedList;
 import java.util.Queue;
