@@ -3,6 +3,6 @@ import Easy.*;
 
 public class Main {
     public static void main(String[] args) {
-        q39.testSample();
+        q40.testSample();
     }
 }
