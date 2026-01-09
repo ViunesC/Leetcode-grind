@@ -4,6 +4,6 @@ import Hard.*;
 
 public class Main {
     public static void main(String[] args) {
-        q1005.testSample();
+        q860.testSample();
     }
 }
