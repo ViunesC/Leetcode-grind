@@ -6,6 +6,9 @@ public class q96 {
             return n;
 
         // if we view each BST as left sub-BST + right sub-BST
+        // then for a tree of size n, we have
+        // numTrees = Sum(numTrees of size j left-sub tree * numTrees of size n-j
+        // (remaining size available) left-sub tree), where j=1...n
         int[] countSubTree = new int[n+1];
         countSubTree[0] = 1;
         countSubTree[1] = 1;
