@@ -5,6 +5,6 @@ import Misc.*;
 
 public class Main {
     public static void main(String[] args) {
-        q322.testSample();
+        q279.testSample();
     }
 }
