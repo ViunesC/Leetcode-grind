@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class q100 {
     /*
      * 卡码网 100. 最大岛屿的面积
-     * https://kamacoder.com/problempage.php?pid=1171
+     * https://kamacoder.com/problempage.php?pid=1172
      */
 
     private static int[][] nav = {{-1,0},{0,-1},{1,0},{0,1}};

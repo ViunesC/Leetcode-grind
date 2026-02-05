@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class q101 {
     /*
      * 卡码网 101. 孤岛的总面积
-     * https://kamacoder.com/problempage.php?pid=1171
+     * https://kamacoder.com/problempage.php?pid=1173
      */
 
     private static int[][] nav = {{0,-1}, {-1,0}, {0,1}, {1,0}};
