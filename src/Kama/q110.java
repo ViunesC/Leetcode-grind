@@ -3,6 +3,11 @@ package Kama;
 import java.util.*;
 
 public class q110 {
+    /*
+     * 卡码网 110. 字符串迁移
+     * https://kamacoder.com/problempage.php?pid=1183
+     */
+
     private static int bfs(Set<String> dict, String beginStr, String endStr) {
         int len = 1;
         Set<String> visited = new HashSet<>();
