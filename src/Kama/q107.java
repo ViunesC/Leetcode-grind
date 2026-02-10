@@ -13,7 +13,7 @@ public class q107 {
     private static int find(int u) {
         if (father[u] == u) return u;
 
-        return find(father[u]);
+        return father[u] = find(father[u]);
     }
 
     private static void join(int u, int v) {
