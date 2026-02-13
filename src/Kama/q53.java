@@ -7,8 +7,9 @@ public class q53 {
      * 卡码网 53. 寻宝
      * https://kamacoder.com/problempage.php?pid=1053
      */
+    private static int[] father;
 
-    public static void main(String[] args) {
+    private static int prim() {
         Scanner scanner = new Scanner(System.in);
         int v = scanner.nextInt();
         int e = scanner.nextInt();
@@ -64,7 +65,59 @@ public class q53 {
         for (int i = 2; i <= v; i++) {
             result += minDist[i];
         }
-        System.out.println(result);
         scanner.close();
+
+        return result;
+    }
+
+    private static int find(int u) {
+        if (father[u] == u) return u;
+
+        return father[u] = find(father[u]);
+    }
+
+    private static boolean join(int u, int v) {
+        u = find(u);
+        v = find(v);
+
+        if (u == v) return false;
+
+        father[v] = u;
+        return true;
+    }
+
+    private static int kruskal() {
+        Scanner myScanner = new Scanner(System.in);
+
+        int V = myScanner.nextInt();
+        int E = myScanner.nextInt();
+
+        List<int[]> edges = new ArrayList<>();
+
+        for (int i=0;i<E;++i) {
+            edges.add(new int[]{myScanner.nextInt(), myScanner.nextInt(), myScanner.nextInt()});
+        }
+
+        edges.sort(Comparator.comparingInt(a -> a[2]));
+
+        father = new int[V+1];
+        for (int i=0;i<=V;++i) {
+            father[i] = i;
+        }
+
+        int result = 0;
+        for (int[] adjNodes : edges) {
+            if (join(adjNodes[0], adjNodes[1])) {
+                result += adjNodes[2];
+            }
+        }
+        myScanner.close();
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        // System.out.println(prim());
+        System.out.println(kruskal());
     }
 }
