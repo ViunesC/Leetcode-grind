@@ -11,22 +11,32 @@ public class q94 {
     private static List<List<int[]>> adjList;
 
     private static int N;
-    private static int M;
 
     private static int bellmanFord() {
         int[] minDist = new int[N+1];
         Arrays.fill(minDist, Integer.MAX_VALUE);
         minDist[1] = 0;
 
-        List<int[]> fromNodes;
-        for (int i=0;i<N-1;++i) {
+        List<int[]> toNodes;
+        int next;
+        Deque<Integer> queue = new ArrayDeque<>();
+        boolean[] isQueued = new boolean[N+1];
 
-            for (int j=1;j<=N;++j) {
-                fromNodes = adjList.get(j);
+        queue.push(1);
+        isQueued[1] = true;
 
-                for (int[] path : fromNodes) {
-                    if (minDist[path[0]] != Integer.MAX_VALUE && minDist[j] > minDist[path[0]] + path[2]) {
-                        minDist[j] = minDist[path[0]] + path[2];
+        while(!queue.isEmpty()) {
+            next = queue.removeLast();
+            toNodes = adjList.get(next);
+            isQueued[next] = false;
+
+            for (int[] path : toNodes) {
+                if (minDist[path[1]] > minDist[path[0]] + path[2]) {
+                    minDist[path[1]] = minDist[path[0]] + path[2];
+
+                    if (!isQueued[path[1]]) {
+                        queue.push(path[1]);
+                        isQueued[path[1]] = true;
                     }
                 }
             }
@@ -39,7 +49,7 @@ public class q94 {
         Scanner myScanner = new Scanner(System.in);
 
         N = myScanner.nextInt();
-        M = myScanner.nextInt();
+        int M = myScanner.nextInt();
 
         adjList = new ArrayList<>();
 
@@ -53,7 +63,7 @@ public class q94 {
             t = myScanner.nextInt();
             v = myScanner.nextInt();
 
-            adjList.get(t).add(new int[]{s,t,v});
+            adjList.get(s).add(new int[]{s,t,v});
         }
 
         int res = bellmanFord();
