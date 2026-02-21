@@ -50,5 +50,7 @@ public class q97 {
             else
                 System.out.println(result);
         }
+
+        myScanner.close();
     }
 }
