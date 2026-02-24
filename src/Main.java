@@ -7,6 +7,6 @@ import Misc.Graph.UnionFind;
 public class Main {
     public static void main(String[] args) {
 
-        q143.testSample();
+        q205.testSample();
     }
 }
