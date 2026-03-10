@@ -1,22 +1,8 @@
-from typing import List
+from medium import q75
 
-class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        result = image
+if __name__ == "__main__":
+    problem = q75.Solution()
 
-        if sr - 1 >= 0 and result[sr-1][sc] == result[sr][sc]:
-            result = self.floodFill(result, sr-1, sc, color)
-        if sr + 1 < len(image) and result[sr+1][sc] == result[sr][sc]:
-            result = self.floodFill(result, sr+1, sc, color)
-        if sc - 1 >= 0 and result[sr][sc-1] == result[sr][sc]:
-            result = self.floodFill(result, sr, sc-1, color)
-        if sc + 1 < len(image[0]) and result[sr][sc+1] == result[sr][sc]:
-            result = self.floodFill(result, sr, sc+1, color)
-
-        result[sr][sc] = color
-
-        return result
-
-mySolution = Solution()
-
-print(mySolution.floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2))
+    colors = [0, 1, 0, 2, 1, 0, 2]
+    problem.sortColors(colors)
+    print(colors)
