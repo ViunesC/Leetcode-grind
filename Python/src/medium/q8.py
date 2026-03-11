@@ -17,7 +17,7 @@ class Solution:
         INT_MIN = -2**31
 
         # skip leading whitespace
-        while s[i] == ' ' and i < len(s):
+        while i < len(s) and s[i] == ' ':
             i += 1
         
         # check sign
