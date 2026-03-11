@@ -1,6 +1,10 @@
 from typing import List
 
 class Solution:
+    """
+    Leetcode 416: Partition Equal Subset Sum
+    """
+
     def canPartition(self, nums: List[int]) -> bool:
         total = sum(nums)
         if total % 2 != 0:
