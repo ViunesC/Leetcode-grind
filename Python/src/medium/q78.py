@@ -1,6 +1,10 @@
 from typing import List
 
 class Solution:
+    """
+    Leetcode 78: Subsets
+    """
+
     def subsets(self, nums: List[int]) -> List[List[int]]:
         self.results = []
         self.path = []
