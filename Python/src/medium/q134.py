@@ -1,6 +1,10 @@
 from typing import List
 
 class Solution:
+    """
+    Leetcode 134: Gas Station
+    """
+
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         # we will store two sums:
         # 1. currSum, representing the current run's remaining fuel (fuel obtained - fuel used)
