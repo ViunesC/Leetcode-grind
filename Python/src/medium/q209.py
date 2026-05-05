@@ -1,6 +1,10 @@
 from typing import List
 
 class Solution:
+    """
+    Leetcode 209: Minimum Size Subarray Sum
+    """
+
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         left, right = 0, 0
         min_len = 1000001
