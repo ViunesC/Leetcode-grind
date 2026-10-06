@@ -1,35 +1,33 @@
+from typing import List
+
 class Solution:
     """
     Leetcode 209: Minimum Size Subarray Sum
     """
 
-    def _sum(self, arr: list[int]) -> int:
-        res = 0
-        for v in arr:
-            res += v
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        left, right = 0, 0
+        min_len = 1000001
+        cum_sum = 0
 
-        return res
-
-    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
-        slow, fast, min_len = 0,0, len(nums)+1
-
-        while fast < len(nums):
-            total = self._sum(nums[slow:fast+1])
-
-            if total < target:
-                fast += 1
-            elif total > target:
-                slow += 1
+        while True:
+            # if cum_len < target
+            # if not out of right end, slide right, else break
+            if cum_sum < target:
+                if right < len(nums):
+                    cum_sum += nums[right]
+                    right += 1
+                else:
+                    break
+            # if cum_len >= target, calculate, then slide left
             else:
-                min_len = min(min_len, fast - slow + 1)
-                fast += 1
-
-        if min_len == len(nums)+1:
-            return 0
-        else:
-            return min_len
-
+                min_len = min(min_len, right - left)
+                # print(f"subarray={nums[left:right+1]}, sum={cum_sum}")
+                cum_sum -= nums[left]
+                left += 1
+        
+        return min_len if min_len != 1000001 else 0
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.minSubArrayLen(9, [1,4,4]))
+    print(sol.minSubArrayLen(7, [2,3,1,2,4,3]))
