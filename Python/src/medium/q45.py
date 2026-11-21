@@ -1,18 +1,22 @@
-from typing import List
-
 class Solution:
     """
     Leetcode 45: Jump Game II
     """
 
-    def jump(self, nums: List[int]) -> int:
-        jumps, curr_furthest, next_furthest = 0,0,0
+    def jump(self, nums: list[int]) -> int:
+        if len(nums) == 1:
+            return 0
 
-        for i, num in enumerate(nums):
-            next_furthest = max(next_furthest, i + num)
+        curr_cover, next_cover = 0, 0
+        min_jump = 0
 
-            if i == curr_furthest and i != len(nums)-1:
-                jumps += 1
-                curr_furthest = next_furthest
-        
-        return jumps
+        for i in range(len(nums)):
+            next_cover = max(next_cover, i + nums[i])
+            if next_cover >= len(nums)-1:
+                break
+            
+            if i == curr_cover:
+                min_jump += 1
+                curr_cover = next_cover
+
+        return min_jump + 1
