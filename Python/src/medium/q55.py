@@ -1,22 +1,19 @@
-from typing import List
-
 class Solution:
     """
     Leetcode 55: Jump Game
     """
 
-    def canJump(self, nums: List[int]) -> bool:
-        coverage = 0
+    def canJump(self, nums: list[int]) -> bool:
+        furthest_idx = 0
 
-        for n in nums:
-            if coverage < 0: # if coverage is depleted and got no supply in last cell, we cannot reach current and future cells, return false
+        for i in range(len(nums)):
+            if i > furthest_idx:
+                # not reachable
                 return False
-            elif n > coverage: # if current cell has a coverage > current coverage, replace current
-                coverage = n
-            coverage -= 1 # each time subtract 1 when moving forward
-        
+
+            furthest_idx = max(furthest_idx, i + nums[i])
+
         return True
-    
 
 if __name__ == "__main__":
     sol = Solution()
